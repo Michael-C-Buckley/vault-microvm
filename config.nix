@@ -12,6 +12,7 @@
   services.vault = {
     dev = true;
     enable = true;
+    address = "0.0.0.0:8200";
     devRootTokenID = "root";
   };
 }
