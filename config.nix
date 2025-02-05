@@ -17,7 +17,7 @@
   services = {
     openssh = {
       enable = true;
-      banner = "-- SSH VTY for Hashicorp Vault test mircovm --";
+      banner = "\n-- SSH VTY for Hashicorp Vault test mircovm --\n";
     };
     vault = {
       dev = true;
