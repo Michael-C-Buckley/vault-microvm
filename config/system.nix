@@ -3,6 +3,8 @@
   system.stateVersion = "25.05";
   nixpkgs.config.allowUnfree = true;
 
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_hardened;
+
   nix = {
     package = pkgs.lix;
     settings.experimental-features = ["nix-command" "flakes"];
