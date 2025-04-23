@@ -10,4 +10,13 @@ _: {
       ui = true
     '';
   };
+
+  # Give the production unit a persistent file store
+  microvm.volumes = [
+    {
+      mountPoint = "/var";
+      image = "vault.img";
+      size = 512;
+    }
+  ];
 }

@@ -24,16 +24,28 @@
     microvm,
   }: let
     system = "x86_64-linux";
-  in {
-    packages.${system}.default = self.nixosConfigurations.vault.config.microvm.declaredRunner;
 
-    nixosConfigurations.vault = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = {inherit microvm;};
-      modules = [
-        microvm.nixosModules.microvm
-        ./config
-      ];
+    mkVaultSystem = type:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit microvm;};
+        modules = [
+          microvm.nixosModules.microvm
+          ./config
+          ./config/vault/${type}.nix
+        ];
+      };
+
+    mkRunner = name: self.nixosConfigurations.${name}.config.microvm.declaredRunner;
+  in {
+    packages.${system} = {
+      default = mkRunner "vault";
+      dev = mkRunner "dev";
+    };
+
+    nixosConfigurations = {
+      vault = mkVaultSystem "prod";
+      dev = mkVaultSystem "dev";
     };
   };
 }
