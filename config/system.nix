@@ -1,9 +1,8 @@
 {pkgs, ...}: {
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_hardened;
   environment.enableAllTerminfo = true;
   system.stateVersion = "25.05";
   nixpkgs.config.allowUnfree = true;
-
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_hardened;
 
   nix = {
     package = pkgs.lix;

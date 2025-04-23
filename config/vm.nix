@@ -6,6 +6,10 @@
     hypervisor = "qemu";
     socket = "control.socket";
 
+    # The VM idles around 600MB with these production settings
+    vcpu = 2;
+    mem = 1024;
+
     interfaces = [
       {
         # Tap interfaces will be available but will need manual `ip` commands to bring the host side interfaces up
