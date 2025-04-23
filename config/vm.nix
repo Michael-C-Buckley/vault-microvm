@@ -15,6 +15,12 @@
       }
     ];
 
+    volumes = [ {
+      mountPoint = "/var";
+      image = "vault.img";
+      size = 512;
+    } ];
+
     shares = [
       {
         # 9P works for imperatively run VMs whereas virtiofs needs extra steps
