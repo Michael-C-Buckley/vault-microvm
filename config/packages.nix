@@ -10,6 +10,7 @@
       curl
 
       # Core Security
+      vault
       openssl
       sops
       rage
