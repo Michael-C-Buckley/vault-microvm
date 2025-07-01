@@ -14,8 +14,11 @@
   # };
 
   inputs = {
-    nixpkgs.follows = "microvm/nixpkgs";
-    microvm.url = "github:astro/microvm.nix";
+    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
+    microvm = {
+      url = "git+https://github.com/astro/microvm.nix?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
