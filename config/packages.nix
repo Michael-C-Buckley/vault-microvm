@@ -8,6 +8,7 @@
       # General Utilities
       gitMinimal
       curl
+      microfetch
 
       # Core Security
       vault
