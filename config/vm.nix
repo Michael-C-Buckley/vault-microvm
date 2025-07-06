@@ -3,7 +3,7 @@
   users.users.root.password = "password";
   microvm = {
     # QEMU is the simplest and most straight
-    hypervisor = "qemu";
+    hypervisor = "crosvm";
     socket = "control.socket";
 
     # The VM idles around 600MB with these production settings
